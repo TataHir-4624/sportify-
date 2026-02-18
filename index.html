@@ -111,6 +111,44 @@ body {
       line-height: 1.1;
     }
 
+    #workout-zone-section #zone-reset-button {
+  position: absolute;
+  top: 570px;      /* ↑↓ move up/down */
+  right: 370px;    /* ←→ move left/right */
+  display: flex;
+  align-items: center;
+  gap: 10px;       /* gap between arrow and text */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+#workout-zone-section #zone-reset-button span:first-child {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #999;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+#workout-zone-section #zone-reset-button:hover span:first-child {
+  background: #666;
+}
+
+#zone-reset-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+}
    
     #viz-switcher {
       z-index: 6000; /* dropdown ALWAYS clickable */
@@ -967,6 +1005,12 @@ body {
         <div class="arrow">↓</div>
         <div class="text">Scroll to spin<br>the wheel</div>
       </div>
+
+<div id="zone-reset-button">
+        <span>←</span>
+        <span id="zone-reset-label">Back to full view</span>
+      </div>
+      
     </div>
 
 </section>
@@ -1439,6 +1483,7 @@ nextBtn.addEventListener('click', () => {
 
 </body>
 </html>
+
 
 
 
