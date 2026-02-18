@@ -450,6 +450,23 @@ else if (p.depth === 0) {
     d3.select("#sub-label").text("What kind of energy do you want to train in?");
 }
 
+    // Show/hide reset button based on depth
+const resetBtn = d3.select("#zone-reset-button");
+if (p.depth >= 1) {
+  // On zone (depth 1), genre (depth 2) or song (depth 3) view - show button
+  resetBtn
+    .style("opacity", 1)
+    .style("pointer-events", "auto");
+} else {
+  // On root view (depth 0) - hide button
+  resetBtn
+    .style("opacity", 0)
+    .style("pointer-events", "none");
+}
+
+
+    d3.select("#zone-center-info").html("");
+
 
     d3.select("#zone-center-info").html("");
     parent.datum(p.parent || root);
@@ -634,4 +651,5 @@ window.addEventListener("wheel", (event) => {
   d3.select("#sunburst-container")
     .attr("transform", `rotate(${rotation})`);
 });
+
 
