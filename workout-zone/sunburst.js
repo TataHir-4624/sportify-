@@ -605,6 +605,21 @@ if (
   // 🔥 ALWAYS rotate text upright, matching Zone 1
   return `rotate(${x - 90}) translate(${y},0) rotate(0)`;
 }
+
+// Reset button - manually go back to root
+d3.select("#zone-reset-button").on("click", function(event) {
+  event.stopPropagation();
+  
+  // Manually call clicked with root to go to depth 0
+  if (typeof clicked === 'function' && typeof root !== 'undefined') {
+    clicked(event, root);
+  } else {
+    console.error("clicked or root not accessible");
+    console.log("clicked:", typeof clicked);
+    console.log("root:", typeof root);
+  }
+});
+
 }
 
 let rotation = 0;
@@ -619,3 +634,4 @@ window.addEventListener("wheel", (event) => {
   d3.select("#sunburst-container")
     .attr("transform", `rotate(${rotation})`);
 });
+
