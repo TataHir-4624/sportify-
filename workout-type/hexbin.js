@@ -148,6 +148,11 @@ d3.select(this)
   .attr("fill", "white")
   .attr("stroke", "none");
 
+// SHOW reset button when zoomed in
+d3.select("#type-reset-button")
+  .style("opacity", 1)
+  .style("pointer-events", "auto");
+
 // REMOVE THIS BROKEN LINE
 // d3.select("#song-info").remove();
 
@@ -410,3 +415,4 @@ d3.select("#type-reset-button").on("click", function() {
 
 
 });   // closes d3.csv().then()
+
